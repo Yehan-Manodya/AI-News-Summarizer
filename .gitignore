@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+env/
+
+# Models (too large for GitHub)
+models/*.pt
+models/*.bin
+models/*.h5
+
+# Data
+data/raw/
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
