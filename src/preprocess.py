@@ -41,14 +41,15 @@ class Vocabulary:
         print(f"✅ Vocabulary built: {len(self.word2idx):,} words")
 
     def encode(self, text, max_len, add_eos=False):
-        """Convert text string → list of numbers"""
-        tokens = nltk.word_tokenize(text.lower())[:max_len]
+    # Leave room for EOS token if needed
+        actual_max = max_len - 1 if add_eos else max_len
+        tokens = nltk.word_tokenize(text.lower())[:actual_max]
         ids = [self.word2idx.get(t, self.word2idx[UNK_TOKEN]) for t in tokens]
 
         if add_eos:
             ids = ids + [self.word2idx[EOS_TOKEN]]
 
-        # Pad to max_len
+    # Pad to max_len
         ids = ids + [self.word2idx[PAD_TOKEN]] * (max_len - len(ids))
         return ids
 
