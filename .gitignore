@@ -20,3 +20,7 @@ data/raw/
 
 # Jupyter
 .ipynb_checkpoints/
+
+models/bart_model/
+models/lstm_weights.pt
+models/vocab.pkl
